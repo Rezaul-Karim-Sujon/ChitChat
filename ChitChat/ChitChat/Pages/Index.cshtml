@@ -1,10 +1,23 @@
 ﻿@page
+
+<style>
+    ul {
+        list-style-type: "👨";
+        padding-inline-start:auto;
+    }
+    ul#time {
+        list-style-type: "🕒";
+        padding-inline-start:auto;
+    }
+</style>
+
 <div class="container">
     <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-2">User</div>
         <div class="col-4"><input type="text" id="userInput" /></div>
     </div>
+    <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-2">Message</div>
         <div class="col-4"><input type="text" id="messageInput" /></div>
@@ -23,7 +36,11 @@
 </div>
 <div class="row">
     <div class="col-6">
-        <ul id="messagesList"></ul>
+        <ul id="messagesList">
+        </ul>
+    </div>
+    <div class="col-6">
+        <ul id="time"></ul>
     </div>
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

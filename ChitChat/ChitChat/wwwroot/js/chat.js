@@ -7,11 +7,26 @@ document.getElementById("sendButton").disabled = true;
 
 connection.on("ReceiveMessage", function (user, message) {
     var li = document.createElement("li");
+    var Time = document.createElement("li");
+    var date = new Date();
+    var time = date.toLocaleString('en-Us', {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        weekday: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        month: 'long',
+    });
     document.getElementById("messagesList").appendChild(li);
+    document.getElementById("time").appendChild(Time);
     // We can assign user-supplied strings to an element's textContent because it
     // is not interpreted as markup. If you're assigning in any other way, you 
     // should be aware of possible script injection concerns.
-    li.textContent = `${user} says ${message}`;
+    if (user == "") user = "Unknown"
+    //li.textContent = `${user}: ${message} ${temp.sub}`;
+    li.textContent = user + ":" + message;
+    Time.textContent = time;
 });
 
 connection.start().then(function () {
